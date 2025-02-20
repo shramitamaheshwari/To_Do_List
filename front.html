@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar" id="login-section">
+            <h2>Enter Your Details</h2>
+            <input type="text" id="username" placeholder="Enter your name...">
+            <input type="password" id="password" placeholder="Enter your password...">
+            <br>
+            <button onclick="setUsername()">Submit</button>
+        </div>
+        
+        <div class="main-content" id="todo-section" style="display: none;">
+            <h2 id="greeting" style="text-align: center;"></h2>
+            <div class="content-container">
+                <div class="left-section">
+                    <h3>Actions</h3>
+                    <input type="text" id="taskInput" placeholder="Enter a task...">
+                    <br>
+                    <button onclick="addTask()">Add Task</button>
+                    <button onclick="clearTasks()">Clear Tasks</button>
+                </div>
+                <div class="right-section">
+                    <h3>To-Do List</h3>
+                    <ul id="taskList" class="task-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function setUsername() {
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+            if (username && password) {
+                document.getElementById("greeting").innerText = `Hello, welcome to ${username}'s To-Do List`;
+                document.getElementById("login-section").style.display = "none";
+                document.getElementById("todo-section").style.display = "flex";
+            }
+        }
+    </script>
+</body>
+</html>
+    
